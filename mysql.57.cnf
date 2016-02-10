@@ -1,0 +1,52 @@
+# source http://dimitrik.free.fr/blog/archives/2016/02/mysql-performance-scalability-on-oltp_rw-benchmark-with-mysql-57.html
+[mysqld]
+# general
+  table_open_cache = 8000
+  table_open_cache_instances=16
+  back_log=1500
+  query_cache_type=0
+  max_connections=4000
+
+# files
+  innodb_file_per_table
+  innodb_log_file_size=1024M
+  innodb_log_files_in_group=3
+  innodb_open_files=4000
+
+# buffers
+  innodb_buffer_pool_size= 32000M
+  innodb_buffer_pool_instances=32
+  innodb_log_buffer_size=64M
+
+# tune
+  innodb_checksums=0
+  innodb_doublewrite= 0 / 1 
+  innodb_support_xa=0
+  innodb_thread_concurrency=0 / 64
+  innodb_flush_log_at_trx_commit=2 / 1
+  innodb_flush_method=O_DIRECT_NOFSYNC
+  innodb_max_dirty_pages_pct=90
+  innodb_max_dirty_pages_pct_lwm=10
+  innodb_lru_scan_depth=4000
+  innodb_page_cleaners=4
+  join_buffer_size=32K
+  sort_buffer_size=32K
+  innodb_use_native_aio=1
+  innodb_stats_persistent = 1
+  innodb_spin_wait_delay=6 / 96
+
+# perf special
+  innodb_adaptive_flushing = 1
+  innodb_flush_neighbors = 0
+  innodb_read_io_threads = 4
+  innodb_write_io_threads = 4
+  innodb_io_capacity=2000
+  innodb_io_capacity_max=4000
+  innodb_purge_threads=4
+  innodb_max_purge_lag_delay=30000000
+  innodb_max_purge_lag=0
+  innodb_adaptive_hash_index=0
+
+# Monitoring
+  innodb_monitor_enable = '%'
+  performance_schema=OFF
