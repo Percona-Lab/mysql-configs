@@ -1,0 +1,32 @@
+# credits for Alexey Stroganov
+innodb_io_capacity=15000 
+loose-innodb_io_capacity_max=25000 
+skip-grant-tables 
+loose-innodb_lru_scan_depth=8192 
+innodb_buffer_pool_size=${BP}G   
+innodb_doublewrite=1 
+innodb_log_file_size=10G                                                                          
+max_connections=50000    
+innodb_flush_log_at_trx_commit=1 
+skip_name_resolve=ON 
+innodb_thread_concurrency=0                                  
+loose-innodb-log_checksum-algorithm=crc32 
+loose-innodb-checksum-algorithm=strict_crc32 
+loose-innodb_sched_priority_cleaner=39  
+innodb_purge_threads=8                                                                                    
+loose-performance_schema=ON 
+loose-performance-schema-instrument='wait/synch/%=ON' 
+innodb_monitor_enable=all 
+loose-innodb-page-cleaners=4  
+innodb_change_buffering=none 
+innodb_buffer_pool_instances=8 
+innodb_adaptive_hash_index=OFF
+innodb_read_io_threads = 8
+innodb_write_io_threads = 8
+sync_binlog=0
+max_connections=5000
+table_open_cache=5000
+query_cache_type=OFF
+loose-innodb_flush_neighbors=0
+loose-metadata_locks_hash_instances=256
+loose-table_open_cache_instances=100
